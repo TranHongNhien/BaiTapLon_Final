@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh Sách Sản Phẩm Phụ Kiện</title>
+
+    <link rel="stylesheet" href="../css/card.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/footer.css" />
+    <style>
+      .card {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+        border: 2px solid #ff6961;
+        /* background: linear-gradient(
+      100deg,
+      #ffe2e4,
+      #ffabe6,
+      #ffe2e4
+    ); Thêm gradient */
+        /* border: none; */
+        margin-bottom: 10px;
+        color: black;
+        font-weight: bold;
+      }
+      .btn {
+        color: white;
+        background-color: #ff6961;
+
+        border: none;
+        font-weight: bold;
+      }
+    </style>
+
+    <script>
+      function viewDetails(name, image, price) {
+        // Chuẩn hóa giá (loại bỏ dấu phẩy nếu cần)
+        if (typeof price === "string") {
+          price = parseInt(price.replace(/,/g, ""), 10);
+        }
+
+        // Lưu thông tin sản phẩm vào localStorage
+        localStorage.setItem("productName", name);
+        localStorage.setItem("productImage", image);
+        localStorage.setItem("productPrice", price);
+
+        // Chuyển hướng đến trang chi tiết sản phẩm
+        window.location.href = "TrangChiTietSPPhuKien.html";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div>
+          <img src="../img/giohang.png" height="20px" />
+          <a href="">Giỏ Hàng</a>
+          <img src="../img/dangNhap.png" height="20px" />
+          <a href="DangNhapDangKy.html">Đăng Nhập</a>
+          <a href="DangNhapDangKy.html">Đăng Ký</a>
+        </div>
+        <h1>SNEAKER</h1>
+        <h4>MakeMoodFoot</h4>
+        <!-- Links -->
+        <nav class="navbar navbar-expand-sm nav-tabs">
+          <ul class="navbar-nav w-100 d-flex justify-content-between">
+            <li class="nav-item">
+              <a class="nav-link" href="TrangChu.html">Trang chủ</a>
+            </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbardrop"
+                data-toggle="dropdown"
+              >
+                Sản phẩm
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="DanhSachGiayNam.html"
+                  >Giày Nam</a
+                >
+                <a class="dropdown-item" href="DanhSachGiayNu.html">Giày Nữ</a>
+                <a class="dropdown-item" href="DanhSachPhuKien.html"
+                  >Phụ Kiện</a
+                >
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="TrangThongTin.html">Thông Tin</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="TrangLienHe.html">Liên Hệ</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- kết thúc link -->
+        <div class="search-container">
+          <input type="text" placeholder="Tìm Kiếm" />
+          <i class="fas fa-search"></i>
+        </div>
+      </header>
+      <div id="sp">
+        <!-- <div id="h2">
+          <h2>SẢN PHẨM NỔI BẬT</h2>
+        </div> -->
+        <!-- banner sppk -->
+        <div class="product-list">
+          <h2 class="text-center">Phụ kiện</h2>
+          <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-3 product-card">
+              <div class="card">
+                <img
+                  src="../img/sppk/Mũ bóng chày.jpg"
+                  class="card-img-top"
+                  alt="Product 1"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Mũ bóng chày</h5>
+                  <p class="card-text">
+                    <span id="price" data-price="300000">300,000</span> VND
+                  </p>
+                  <button
+                    class="btn"
+                    onclick="viewDetails('Mũ bóng chày', '../img/sppk/Mũ bóng chày.jpg', '300000')"
+                  >
+                    Xem Chi Tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-3 product-card">
+              <div class="card">
+                <img
+                  src="../img/sppk/Mũ bảo hiểm thể thao.jpg"
+                  class="card-img-top"
+                  alt="Product 2"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Mũ bảo hiểm thể thao</h5>
+                  <p class="card-text">800,000 VND</p>
+                  <button
+                    class="btn"
+                    onclick="viewDetails('Mũ bảo hiểm thể thao', '../img/sppk/Mũ bảo hiểm thể thao.jpg','800000')"
+                  >
+                    Xem Chi Tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-3 product-card">
+              <div class="card">
+                <img
+                  src="../img/sppk/Mũ lưỡi trai.webp"
+                  class="card-img-top"
+                  alt="Product 3"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Mũ lưỡi trai</h5>
+                  <p class="card-text">450,000 VND</p>
+                  <button
+                    class="btn"
+                    onclick="viewDetails('Mũ lưỡi trai', '../img/sppk/Mũ lưỡi trai.webp','450000')"
+                  >
+                    Xem Chi Tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="col-md-3 product-card">
+              <div class="card">
+                <img
+                  src="../img/sppk/Túi Duffel Basic.webp"
+                  class="card-img-top"
+                  alt="Product 4"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Túi Duffel Basic</h5>
+                  <p class="card-text">900,000 VND</p>
+                  <button
+                    class="btn"
+                    onclick="viewDetails('Túi Duffel Basic', '../img/sppk/Túi Duffel Basic.webp','900000')"
+                  >
+                    Xem Chi Tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Product 5 -->
+            <div class="col-md-3 product-card">
+              <div class="card">
+                <img src="../img/sppk/Tất cổ cao.webp"" alt="Product 4" />
+                <div class="card-body">
+                  <h5 class="card-title">Tất cổ cao</h5>
+                  <p class="card-text">200,000 VND</p>
+                  <button
+                    class="btn"
+                    onclick="viewDetails('Tất cổ cao', '../img/sppk/Tất cổ cao.webp','200000')"
+                  >
+                    Xem Chi Tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Product 6 -->
+            <div class="col-md-3 product-card">
+              <div class="card">
+                <img
+                  src="../img/sppk/Tất nam thoáng khí BLUE.jpg"
+                  class="card-img-top"
+                  alt="Product 4"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Tất nam thoáng khí BLUE</h5>
+                  <p class="card-text">200,000 VND</p>
+                  <button
+                    class="btn"
+                    onclick="viewDetails('Tất nam thoáng khí BLUE', '../img/sppk/Tất nam thoáng khí BLUE.jpg','200000')"
+                  >
+                    Xem Chi Tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Product 7 -->
+            <div class="col-md-3 product-card">
+              <div class="card">
+                <img
+                  src="../img/sppk/Tất trơn Bl68754.jpg"
+                  class="card-img-top"
+                  alt="Product 4"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Tất trơn BL68754</h5>
+                  <p class="card-text">120,000 VND</p>
+                  <button
+                    class="btn"
+                    onclick="viewDetails('Tất trơn BL68754', '../img/sppk/Tất trơn Bl68754.jpg','120000')"
+                  >
+                    Xem Chi Tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Product 8 -->
+            <div class="col-md-3 product-card">
+              <div class="card">
+                <img
+                  src="../img/sppk/Tất trơn Wh23456.webp"
+                  class="card-img-top"
+                  alt="Product 4"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Tất trơn WH23456</h5>
+                  <p class="card-text">120,000 VND</p>
+                  <button
+                    class="btn"
+                    onclick="viewDetails('Tất trơn WH23456', '../img/sppk/Tất trơn Wh23456.webp','120000')"
+                  >
+                    Xem Chi Tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div>
+          <h1>SNEAKER</h1>
+          <h4>MakeMoodFoot</h4>
+          <p>Copyright © 2024 SNEAKER. All rights reserved.</p>
+        </div>
+        <div>
+          <h5>Sản phẩm</h5>
+          <h6>Giày Nam</h6>
+          <h6>Giày Nữ</h6>
+          <h6>Phụ Kiện</h6>
+        </div>
+        <!-- <div>
+          <h5>Về chúng tôi</h5>
+        </div> -->
+        <div>
+          <h5>Liên hệ</h5>
+          <h6>Email</h6>
+          <h6>sneaker.contact@email.com</h6>
+          <h6>Hotline</h6>
+          <h6>0909098386</h6>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
