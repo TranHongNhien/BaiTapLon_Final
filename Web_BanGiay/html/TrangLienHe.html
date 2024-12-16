@@ -289,10 +289,12 @@
             isValid = false;
           }
 
-          // Kiểm tra Số điện thoại: phải là 11 chữ số
-          let phoneRegex = /^\d{10}$/;
+          // Kiểm tra Số điện thoại: phải là 10 chữ số
+          let phoneRegex = /^0[0-9]{9}$/;
           if (!phoneRegex.test(phone)) {
-            $("#phoneError").text("Số điện thoại phải có đúng 10 chữ số.");
+            $("#phoneError").text(
+              "Số điện thoại phải có đúng 10 chữ số, bắt đầu bằng số 0"
+            );
             isValid = false;
           }
 
@@ -310,8 +312,6 @@
     <div class="wrapper">
       <header>
         <div>
-          <img src="../img/giohang.png" height="20px" />
-          <a href="">Giỏ Hàng</a>
           <img src="../img/dangNhap.png" height="20px" />
           <a href="DangNhapDangKy.html">Đăng Nhập</a>
           <a href="DangNhapDangKy.html">Đăng Ký</a>
@@ -377,7 +377,7 @@
           <div class="form-group">
             <label for="email">Email:</label>
             <input
-              type="email"
+              type="text"
               class="form-control"
               id="email"
               placeholder="Nhập email của bạn"
